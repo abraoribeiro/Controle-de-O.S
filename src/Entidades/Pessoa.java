@@ -12,13 +12,24 @@ public class Pessoa {
     private String fone1;
     private String fone2;
     private String rg;
-    private Character uf;
+    private String uf;
     private String cidade;
     private String bairro;
     private String complemento;
     private String cep;
     private String email;
+    private String tipo;
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    
+    
     public Integer getCodigo() {
         return codigo;
     }
@@ -67,14 +78,15 @@ public class Pessoa {
         this.rg = rg;
     }
 
-    public Character getUf() {
+    public String getUf() {
         return uf;
     }
 
-    public void setUf(Character uf) {
+    public void setUf(String uf) {
         this.uf = uf;
     }
 
+  
     public String getCidade() {
         return cidade;
     }
