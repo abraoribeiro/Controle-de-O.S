@@ -102,6 +102,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton3.setText("ALTERAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -383,6 +388,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        TelaAlterar ta = new TelaAlterar(null, true);
+        ta.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public String dado(){
         return (String) jComboBox1.getSelectedItem();

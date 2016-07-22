@@ -209,32 +209,13 @@ public class ControlePesquisaCliente {
                 
            
             }System.out.println(p.getNome());
-           // dados[0] = Integer.toString(p.getCodigo());
-           // dados[1] = p.getNome();
-           // dados[2] = p.getEmail();
-            //dados[3] = p.getFone1();
-           // dados[4] = p.getFone2();
-           
-            
-            
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
              
              return p;
          }
-        
-        
-        
-        
-        
-        
-    
-    
-  
-    
-    
         
     }
     

@@ -5,6 +5,10 @@
  */
 package ViewCliente;
 
+import ControleCliente.ControleAlterarCliente;
+import Entidades.PessoaFisica;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Abrão
@@ -17,6 +21,10 @@ public class TelaAlterar extends javax.swing.JDialog {
     public TelaAlterar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    TelaAlterar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -57,11 +65,11 @@ public class TelaAlterar extends javax.swing.JDialog {
         jLabel12 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jComboBox3 = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(450, 280));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -77,7 +85,7 @@ public class TelaAlterar extends javax.swing.JDialog {
         jLabel7.setText("Cidade");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Cancelar");
+        jButton2.setText("CANCELAR");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Email");
@@ -90,6 +98,11 @@ public class TelaAlterar extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setText("ALTERAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("CEP");
@@ -115,10 +128,8 @@ public class TelaAlterar extends javax.swing.JDialog {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("RG");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CODIGO", "CPF", "CNPJ" }));
-
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("CODIGO/CPF/CNPJ DO CLIENTE A SER ALTERADO");
+        jLabel13.setText("CODIGO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,7 +139,7 @@ public class TelaAlterar extends javax.swing.JDialog {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,10 +208,8 @@ public class TelaAlterar extends javax.swing.JDialog {
                                                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(52, 52, 52))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
                         .addComponent(jLabel13)
-                        .addGap(39, 39, 39)
+                        .addGap(26, 26, 26)
                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -209,12 +218,11 @@ public class TelaAlterar extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
@@ -271,9 +279,7 @@ public class TelaAlterar extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,9 +289,49 @@ public class TelaAlterar extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        if(tipo().equals("FISICA")){
+            PessoaFisica pf = new PessoaFisica();
+            pf.setNome(jTextField1.getText());
+            pf.setBairro(jTextField8.getText());
+            pf.setCep(jTextField9.getText());
+            pf.setCidade(jTextField6.getText());
+            pf.setComplemento(jTextField10.getText());
+            pf.setCpf(jTextField2.getText());
+            pf.setEmail(jTextField7.getText());
+            pf.setEndereco(jTextField3.getText());
+            pf.setFone2(jTextField5.getText());
+            pf.setFone1(jTextField4.getText());
+            pf.setRg(jTextField11.getText());
+            pf.setTipo(tipo());
+            pf.setUf(uf());
+            pf.setCodigo(Integer.parseInt(jTextField12.getText()));
+            
+            if(ControleAlterarCliente.alteraPessoaFisica(pf)){
+                JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso");
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro ao alterar cadastro, verifique o codigo do cliente");
+            }
+            
+            
+            
+                    
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public String tipo(){
+        return (String) jComboBox1.getSelectedItem();
+    }
+    public String uf(){
+        return (String) jComboBox2.getSelectedItem();
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -330,7 +376,6 @@ public class TelaAlterar extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
