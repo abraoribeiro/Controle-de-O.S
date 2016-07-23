@@ -57,7 +57,6 @@ public class ControleCadastroCliente {
         try {
             PreparedStatement ps = con.prepareStatement("insert into pessoaJuridica(nome, cnpj,endereco, fone1, fone2, cidade, uf,"
                     + " cep, email, bairro, complemento, rg, tipo)values(?,?,?,?,?,?,?,?,?,?,?,?,?); ");
-          //  System.out.println(p.getUf());
             ps.setString(1, pj.getNome());
             ps.setString(2, pj.getCnpj());
             ps.setString(3, pj.getEndereco());
