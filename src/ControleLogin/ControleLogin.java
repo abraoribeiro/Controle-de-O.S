@@ -1,4 +1,4 @@
-package ControleCliente;
+package ControleLogin;
 
 import Conexao.Conect;
 import java.sql.Connection;

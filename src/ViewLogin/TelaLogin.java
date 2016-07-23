@@ -5,7 +5,7 @@
  */
 package ViewLogin;
 
-import ControleCliente.ControleLogin;
+import ControleLogin.ControleLogin;
 import ViewInicio.TelaInicial;
 import javax.swing.JOptionPane;
 
