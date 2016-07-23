@@ -1,6 +1,6 @@
 package ControleCliente;
 
-import ViewInicio.TelaInicial;
+import ViewInicio.TelaAdmin;
 import ViewLogin.TelaLogin;
 
 /**
@@ -10,9 +10,6 @@ import ViewLogin.TelaLogin;
 public class Start {
     public static void main(String args[]){
         
-        
-        //TelaInicial ti = new TelaInicial();
-       // ti.setVisible(true);
         TelaLogin tl = new TelaLogin();
         tl.setVisible(true);
         

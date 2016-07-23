@@ -6,7 +6,8 @@
 package ViewLogin;
 
 import ControleLogin.ControleLogin;
-import ViewInicio.TelaInicial;
+import ViewInicio.TelaAdmin;
+import ViewInicio.TelaUsuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -100,11 +101,13 @@ public class TelaLogin extends javax.swing.JFrame {
         String senha = new String(jPasswordField1.getPassword());
         if(ControleLogin.verifica(jTextField1.getText(), senha ) != null){
             if(ControleLogin.verifica(jTextField1.getText(), senha ).equals("ADMINISTRADOR")){
-                TelaInicial ti = new TelaInicial();
+                TelaAdmin ti = new TelaAdmin();
                 ti.setVisible(true);
                 dispose();
             }else{
-                
+                TelaUsuario tu = new TelaUsuario();
+                tu.setVisible(true);
+                dispose();
             }
         }else{
             JOptionPane.showMessageDialog(null, "Usuario ou senha incorretos");
