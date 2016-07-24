@@ -1,9 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ViewCliente;
+
+import ControleCliente.ControleExcluirCliente;
+import ControleCliente.ControlePesquisaCliente;
+import Entidades.Pessoa;
+import Entidades.PessoaFisica;
+import Entidades.PessoaJuridica;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -11,12 +13,13 @@ package ViewCliente;
  */
 public class TelaExcluir extends javax.swing.JDialog {
 
-    /**
-     * Creates new form TelaExcluir
-     */
     public TelaExcluir(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    TelaExcluir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -39,6 +42,7 @@ public class TelaExcluir extends javax.swing.JDialog {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(460, 280));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -46,6 +50,11 @@ public class TelaExcluir extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Pesquisar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CPF", "CNPJ", "CODIGO" }));
@@ -71,6 +80,11 @@ public class TelaExcluir extends javax.swing.JDialog {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton4.setText("EXCLUIR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,6 +94,7 @@ public class TelaExcluir extends javax.swing.JDialog {
                 "Codigo", "Nome", "CPF/CNPJ", "Fone 1", "Fone 2"
             }
         ));
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -116,9 +131,9 @@ public class TelaExcluir extends javax.swing.JDialog {
                     .addComponent(jButton1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
@@ -135,11 +150,35 @@ public class TelaExcluir extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       int cpf = (int) jTable1.getValueAt(0, 0);
+            System.out.println(cpf); 
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        if(modo().equals("CPF")){
+            PessoaFisica pp = ControleExcluirCliente.excluiCpf(jTextField1.getText(), (DefaultTableModel) jTable1.getModel());
+           // int cpf = (int) jTable1.getValueAt(0, 0);
+            //System.out.println(cpf);    
+         
+            
+            
+        }else if(modo().equals("CNPJ")){
+             PessoaJuridica pp = ControlePesquisaCliente.pesquisaCnpj(jTextField1.getText());
+        }else if(modo().equals("CODIGO")){
+            Pessoa pp =  ControlePesquisaCliente.pesquisaCodigo(jTextField1.getText());
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,4 +233,11 @@ public class TelaExcluir extends javax.swing.JDialog {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+public String modo(){
+    return (String) jComboBox1.getSelectedItem();
+}
+
+
+
 }
