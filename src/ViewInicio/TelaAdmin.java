@@ -7,7 +7,10 @@ package ViewInicio;
 
 import ViewCliente.CadastroCliente;
 import ViewCliente.TelaCadastro;
-import ViewUsuario.TelaCadastroUsuario;
+import ViewCliente.TelaPesquisaCliente;
+import ViewUsuario.TelaCadUsuario;
+import ViewUsuario.TelaPesquisaUsuario;
+
 
 /**
  *
@@ -125,6 +128,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenu6.add(jMenuItem11);
 
         jMenuItem12.setText("Pesquisar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem12);
 
         jMenuBar1.add(jMenu6);
@@ -146,9 +154,10 @@ public class TelaAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaCadastro tc = new TelaCadastro();
-        tc.setVisible(true);
-        
+//        TelaCadastro tc = new TelaCadastro();
+ //       tc.setVisible(true);
+        TelaPesquisaCliente tpc = new TelaPesquisaCliente(null, true);
+        tpc.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -157,9 +166,18 @@ public class TelaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        TelaCadastroUsuario tcu = new TelaCadastroUsuario();
+       // TelaCadastroUsuario tcu = new TelaCadastroUsuario();
+       // tcu.setVisible(true);
+        TelaCadUsuario tcu = new TelaCadUsuario(null, true);
         tcu.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+       
+        TelaPesquisaUsuario tpu = new TelaPesquisaUsuario(null, true);
+        tpu.setVisible(true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments

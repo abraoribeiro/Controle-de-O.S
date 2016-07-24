@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class ControleUsuario {
     
     public static boolean CadastraUsuario(Usuario u){
-        String sql = "insert into usuario (nome, senha, tipo) values(?,?,?);";
+        String sql = "insert into usuarios (nome, senha, tipo) values(?,?,?);";
         
         Connection con = Conect.getConnection();
         try {
