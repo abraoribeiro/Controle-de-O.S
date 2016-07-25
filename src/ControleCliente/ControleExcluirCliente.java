@@ -54,6 +54,11 @@ public class ControleExcluirCliente {
         }
        return pf;
    }
-    
+    public static boolean delete(Integer c){
+        
+        
+        
+        return false;
+    }
     
 }

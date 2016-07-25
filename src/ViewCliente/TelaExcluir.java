@@ -5,6 +5,7 @@ import ControleCliente.ControlePesquisaCliente;
 import Entidades.Pessoa;
 import Entidades.PessoaFisica;
 import Entidades.PessoaJuridica;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -157,10 +158,19 @@ public class TelaExcluir extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       int cpf = (int) jTable1.getValueAt(0, 0);
-            System.out.println(cpf); 
+       String msg = "Os dados do Cliente serão apagados!"
+               + "Deseja continuar?";
+        int res = JOptionPane.showConfirmDialog(null,msg,"Atenção",JOptionPane.YES_NO_OPTION);
+         if(res == JOptionPane.YES_OPTION){
         
+        int codigo = (int) jTable1.getValueAt(0, 0);
+       if(ControleExcluirCliente.delete(codigo)){
+           JOptionPane.showMessageDialog(null, "Dados apagados");
+       }else{
+           JOptionPane.showMessageDialog(null, "Erro ao deletar os arquivos");
+       }
         
+         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
