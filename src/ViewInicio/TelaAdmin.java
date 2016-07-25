@@ -3,6 +3,7 @@ package ViewInicio;
 import ViewCliente.CadastroCliente;
 import ViewCliente.TelaCadastro;
 import ViewCliente.TelaPesquisaCliente;
+import ViewTecnico.TelaLaudo;
 import ViewUsuario.TelaCadUsuario;
 import ViewUsuario.TelaPesquisaUsuario;
 /**
@@ -92,6 +93,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         jMenu3.setText("Tecnicos");
 
         jMenuItem3.setText("Laudo");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuItem6.setText("Comissao");
@@ -163,6 +169,11 @@ public class TelaAdmin extends javax.swing.JFrame {
         TelaPesquisaUsuario tpu = new TelaPesquisaUsuario(null, true);
         tpu.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TelaLaudo tl = new TelaLaudo();
+        tl.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     public static void main(String args[]) {
      
