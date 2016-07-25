@@ -21,7 +21,25 @@ public class Ordem {
     private Integer codigoTecnico;
     private Integer codigoCliente;
     private double valor;
+    private double valorP;
+    private String pecas;
 
+    public double getValorP() {
+        return valorP;
+    }
+
+    public void setValorP(double valorP) {
+        this.valorP = valorP;
+    }
+
+    public String getPecas() {
+        return pecas;
+    }
+
+    public void setPecas(String pecas) {
+        this.pecas = pecas;
+    }
+        
     public double getValor() {
         return valor;
     }
